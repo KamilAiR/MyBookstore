@@ -1,0 +1,28 @@
+table {
+  margin-top: 25px;
+  text-align: center;
+}
+H1 {
+  margin: 5px;
+  text-align: center;
+}
+
+.btn-info {
+  margin-top: 75px;
+  width: 200px;
+  height: 50px;
+  text-transform: uppercase;
+  
+}
+.btn-add {
+    background-color: rgb(56, 66, 179);
+  margin-left: 15px;
+}
+.btn-del {
+    background-color:orange;
+  margin-left: 15px;
+}
+a{
+    color: white;
+  text-decoration: none;
+}
