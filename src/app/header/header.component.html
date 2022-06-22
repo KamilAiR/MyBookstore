@@ -7,19 +7,19 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item active">
+          <li class="nav-item active" *ngIf="isLoggedIn">
             <a class="nav-link" href="#" [routerLink]="['/books']">KSIĄŻKI</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="isLoggedIn">
             <a class="nav-link" href="#" [routerLink]="['/authors']">AUTORZY</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="!isLoggedIn">
             <a class="nav-link" href="#" [routerLink]="['/login']">LOGOWANIE</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" [routerLink]="['/registration']">REJESTRACJA</a>
           </li>
-          <li class="nav-item" style="float: right">
+          <li class="nav-item" style="float: right" *ngIf="isLoggedIn">
             <button type="button" (click)="onLogoutClicked()"> Logout</button>
           </li>
         </ul>

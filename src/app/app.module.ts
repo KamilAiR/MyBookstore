@@ -13,6 +13,7 @@ import { BookDelComponent } from './book-del/book-del.component';
 import { AuthorAddComponent } from './author-add/author-add.component';
 import { AuthorDelComponent } from './author-del/author-del.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +40,7 @@ import { AuthorDelComponent } from './author-del/author-del.component';
       {path: 'book-del', component:BookDelComponent},
       {path: 'author-add', component:AuthorAddComponent},
       {path: 'author-del', component:AuthorDelComponent},
+      {path: '**', redirectTo: '/home', pathMatch: 'full'}
     ])
   ],
   providers: [],

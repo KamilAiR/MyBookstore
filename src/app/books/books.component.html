@@ -6,29 +6,18 @@
       <tr>
         <th scope="col">ID</th>
         <th scope="col">Tytuł</th>
+        <th scope="col">Liczba stron</th>
+        <th scope="col">Opis</th>
         <th scope="col">Autor</th>
-        <th scope="col">Rok wydania</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Harry Potter</td>
-        <td>J.K. Rowling</td>
-        <td>2003</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      
+      <tr *ngFor="let book of books">
+        <td scope="row">{{book.id}}</td>
+        <td>{{book.title}}</td>
+        <td>{{book.number_of_pages}}</td>
+        <td>{{book.description}}</td>
+        <td>{{book.author_id}}</td>
+      </tr>    
     </tbody>
   </table>

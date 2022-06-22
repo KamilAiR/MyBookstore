@@ -4,27 +4,18 @@
 <table class="table table-bordered">
     <thead>
       <tr>
-        <th scope="col">Imię i nazwisko</th>
-        <th scope="col">Rok urodzenia</th>
-        <th scope="col">Narodowość</th>
+        <th scope="col">ID</th>
+        <th scope="col">Imie</th>
+        <th scope="col">Nazwisko</th>
+        <th scope="col">Data Urodzenia</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">J.K. Rowling</th>
-        <td>1986</td>
-        <td>Wielka Brytania</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-      </tr>
-      
+      <tr *ngFor="let author of authors">
+        <td>{{author.id}}</td>
+        <td>{{author.first_name}}</td>
+        <td>{{author.last_name}}</td>
+        <td>{{author.birth_date}}</td>
+      </tr>   
     </tbody>
   </table>

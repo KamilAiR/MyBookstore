@@ -17,5 +17,4 @@ export class BooksComponent implements OnInit {
       this.books = p
     });
   }
-
 }
