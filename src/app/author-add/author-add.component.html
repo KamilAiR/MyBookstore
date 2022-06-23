@@ -1,16 +1,16 @@
-<h3>Uzupełnij dane:</h3>
+<h3>Fill author data:</h3>
 
 <div class="form-group">
-    <label for="usr">IMIĘ I NAZWISKO AUTORA:</label>
-    <input type="text" class="form-control" id="usr">
+    <label for="usr">First name:</label>
+    <input type="text" class="form-control" id="usr" [(ngModel)]="first_name">
   </div>
 
   <div class="form-group">
-    <label for="usr">ROK URODZENIA:</label>
-    <input type="text" class="form-control" id="usr">
+    <label for="usr">Last name: </label>
+    <input type="text" class="form-control" id="usr" [(ngModel)]="last_name">
   </div>
   <div class="form-group">
-    <label for="usr">NARODOWOŚĆ:</label>
-    <input type="text" class="form-control" id="usr">
+    <label for="usr">Birth date:</label>
+    <input type="text" class="form-control" id="usr" [(ngModel)]="birth_date">
   </div>
-  <button class="btn btn-info btn-add"><a href="#" [routerLink]="['/authors']">ZATWIERDŹ</a> </button>
+  <button class="btn btn-info btn-add"><a (click)="addAuthor()" >Confirm</a> </button>

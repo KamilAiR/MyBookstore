@@ -13,7 +13,8 @@ import { BookDelComponent } from './book-del/book-del.component';
 import { AuthorAddComponent } from './author-add/author-add.component';
 import { AuthorDelComponent } from './author-del/author-del.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { InterceptorService } from './interceptor.service';
 
 import { FormsModule } from '@angular/forms';
 @NgModule({
@@ -47,7 +48,7 @@ import { FormsModule } from '@angular/forms';
       {path: '**', redirectTo: '/home', pathMatch: 'full'}
     ])
   ],
-  providers: [],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

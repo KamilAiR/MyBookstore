@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthorizationService } from '../authorization.service';
 
 @Component({
   selector: 'app-registration',
@@ -11,13 +12,13 @@ export class RegistrationComponent implements OnInit {
   password = "";
   email ="";
 
-  constructor() { }
+  constructor( private authorizationService : AuthorizationService) { }
 
   ngOnInit(): void {
   }
 
   register() {
-    
+    this.authorizationService.register(this.username, this.password, this.email)
   }
 
 }
