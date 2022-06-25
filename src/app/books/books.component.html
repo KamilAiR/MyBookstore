@@ -13,13 +13,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let book of books">
+      <tr *ngFor="let book of books; index as i">
         <td scope="row">{{book.id}}</td>
         <td>{{book.title}}</td>
         <td>{{book.number_of_pages}}</td>
         <td>{{book.description}}</td>
         <td>{{book.author_id}}</td>
-        <td><button class="btn btn-danger" (click)="deleteBook(book.id)">Delete</button></td>
+        <td><button class="btn btn-danger" (click)="deleteBook(book.id, i)">Delete</button></td>
       </tr>    
     </tbody>
   </table>

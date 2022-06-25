@@ -16,11 +16,11 @@ export class AuthorsService {
   // }
 
   getAuthors() {
-    return this.httpClient.get<Array<any>>(environment.apiUrl + '/api/authors');
+    return this.httpClient.get<any>(environment.apiUrl + '/api/authors');
   }
 
   addNewAuthor(  first_name :string, last_name :string, birth_date : string) {
-    this.httpClient.post(environment.apiUrl + '/api/authors', { 
+    return this.httpClient.post(environment.apiUrl + '/api/authors', { 
       first_name : first_name,
       last_name : last_name,
       birth_date : birth_date
@@ -28,7 +28,7 @@ export class AuthorsService {
   }
 
   deleteAuthor(id : number){
-     this.httpClient.delete(environment.apiUrl + '/api/authors/' + id)
+     return this.httpClient.delete(`${environment.apiUrl}api/authors/${id}`);                         
   }
 
   constructor(private httpClient : HttpClient) { }

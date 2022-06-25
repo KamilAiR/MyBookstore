@@ -15,14 +15,16 @@ export class BooksComponent implements OnInit {
  
   constructor(private booksService: BooksService) { }
 
-  deleteBook( id : number){
-    this.booksService.deleteBook(id);
+  deleteBook(id: number, index: number){
+    this.booksService.deleteBook(id).subscribe (p => {
+      this.books.splice(index,1);
+    });
   }
 
   ngOnInit(): void {
     //this.books = this.booksService.getBooks(); 
-    this.booksService.getBooks().subscribe((p) => {
-      this.books = p
+    this.booksService.getBooks().subscribe(p => {
+      this.books = p.data;
     });
   }
 }

@@ -16,19 +16,19 @@ export class BooksService {
   // }
 
   getBooks() {
-    return this.httpClient.get<Array<any>>(environment.apiUrl + '/api/books');
+    return this.httpClient.get<any>(environment.apiUrl + '/api/books');
   }
 
   addNewBook( title : string, number_of_pages : number, description : string) {
-    this.httpClient.post(environment.apiUrl + '/api/authors/1/books', { 
+    return this.httpClient.post(environment.apiUrl + '/api/authors/1/books', { 
       title : title,
       number_of_pages: number_of_pages,  
       description : description
     })
   }
 
-  deleteBook( id : number) {
-    this.httpClient.delete(environment.apiUrl + '/api/books/' + id)
+  deleteBook(id : number) {
+    return this.httpClient.delete(`${environment.apiUrl}/api/books/${id}`);
   }
 
   constructor( private httpClient : HttpClient ) { }

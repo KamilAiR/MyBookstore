@@ -39,8 +39,7 @@ export class AuthorizationService {
   }
 
   register(username : string , password : string , email : string) {
-    this.httpClient.post(environment.apiUrl + '/api/auth/register', { username: username, password: password, email: email})
-    this.router.navigate(['/login']);
+    return this.httpClient.post(environment.apiUrl + 'api/auth/register', { username: username, password: password, email: email})
   }
 
   constructor(private router : Router, private httpClient : HttpClient) { 

@@ -17,8 +17,10 @@ export class BookAddComponent implements OnInit {
 constructor( private router : Router, private booksService : BooksService  ) { }
 
   addBook() {
-    this.booksService.addNewBook(this.title, this.number_of_pages, this.description);
-    this.router.navigate(['/books']);
+    this.booksService.addNewBook(this.title, this.number_of_pages, this.description).subscribe ( p => {
+      console.log(p);
+      this.router.navigate(['/books']);
+    }) 
   }
 
   ngOnInit(): void {

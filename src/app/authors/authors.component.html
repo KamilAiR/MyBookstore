@@ -12,12 +12,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let author of authors">
+      <tr *ngFor="let author of authors; index as i">
         <td>{{author.id}}</td>
         <td>{{author.first_name}}</td>
         <td>{{author.last_name}}</td>
         <td>{{author.birth_date}}</td>
-        <td><button class="btn btn-danger" (click)="deleteAuthor(author.id)">Delete</button></td>
+        <td><button class="btn btn-danger" (click)="deleteAuthor(author.id, i)">Delete</button></td>
       </tr>   
     </tbody>
   </table>

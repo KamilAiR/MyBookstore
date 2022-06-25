@@ -16,11 +16,12 @@ export class AuthorAddComponent implements OnInit {
   constructor(private router : Router, private authorsService : AuthorsService) { }
 
   addAuthor() {
-    this.authorsService.addNewAuthor(this.first_name, this.last_name, this.birth_date);
-    this.router.navigate(['/authors']);
-  }
-  
-  ngOnInit(): void {
+    this.authorsService.addNewAuthor(this.first_name, this.last_name, this.birth_date).subscribe(p => {
+      console.log(p);
+      this.router.navigate(['/authors']);
+    });
   }
 
+  ngOnInit(): void {
+  }
 }
