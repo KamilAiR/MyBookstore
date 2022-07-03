@@ -8,7 +8,7 @@ import { AuthorizationService } from '../authorization.service';
 })
 export class LoginComponent implements OnInit {
   
-  email = "";
+  username = "";
   password = "";
 
   constructor( private authorizationService : AuthorizationService) { }
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.authorizationService.login(this.email, this.password)
+    this.authorizationService.login(this.username, this.password)
   }
 
 }

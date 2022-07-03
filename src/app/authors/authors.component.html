@@ -1,21 +1,22 @@
-<button class="btn btn-info btn-add"><a href="#" [routerLink]="['/author-add']">Dodaj autora</a> </button>
-<button class="btn btn-info btn-del"><a href="#" [routerLink]="['/author-del']">Usuń autora</a> </button>
-<h1>AUTORZY</h1>
+<button class="btn btn-info btn-add"><a href="#" [routerLink]="['/author-add']">Add author</a> </button>
+<h1>AUTHORS</h1>
 <table class="table table-bordered">
     <thead>
       <tr>
         <th scope="col">ID</th>
-        <th scope="col">Imie</th>
-        <th scope="col">Nazwisko</th>
-        <th scope="col">Data Urodzenia</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Birth date</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let author of authors">
+      <tr *ngFor="let author of authors; index as i">
         <td>{{author.id}}</td>
         <td>{{author.first_name}}</td>
         <td>{{author.last_name}}</td>
         <td>{{author.birth_date}}</td>
+        <td><button class="btn btn-danger" (click)="deleteAuthor(author.id, i)">Delete</button></td>
       </tr>   
     </tbody>
   </table>

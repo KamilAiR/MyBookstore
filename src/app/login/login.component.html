@@ -1,12 +1,13 @@
 <form>
     <div class="form-group">
-        <label for="inputEmail">Email:</label>
-        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+        <label for="inputEmail">Username:</label>
+        <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" [(ngModel)]="username" required autofocus>
     </div>
     <div class="form-group">
         <label for="inputPassword">Hasło:</label>
-        <input type="password" class="form-control" id="inputPassword" placeholder="Hasło">
+        <input type="password" class="form-control" id="inputPassword" placeholder="Hasło" name="password" [(ngModel)]="password" required>
     </div>
     
-    <button type="submit" class="btn btn-primary"><a href="#" [routerLink]="['/home']">Zaloguj się</a></button>
+    <button type="submit" class="btn btn-primary"><a (click)="login()">Zaloguj się</a></button>
 </form>
+

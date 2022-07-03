@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {RouterModule} from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { BooksComponent } from './books/books.component';
 import { AuthorsComponent } from './authors/authors.component';
@@ -13,7 +13,10 @@ import { BookDelComponent } from './book-del/book-del.component';
 import { AuthorAddComponent } from './author-add/author-add.component';
 import { AuthorDelComponent } from './author-del/author-del.component';
 
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { InterceptorService } from './interceptor.service';
 
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +33,8 @@ import { AuthorDelComponent } from './author-del/author-del.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    FormsModule,
     RouterModule.forRoot([
       {path: 'books', component:BooksComponent},
       {path: 'authors', component:AuthorsComponent},
@@ -43,7 +48,7 @@ import { AuthorDelComponent } from './author-del/author-del.component';
       {path: '**', redirectTo: '/home', pathMatch: 'full'}
     ])
   ],
-  providers: [],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

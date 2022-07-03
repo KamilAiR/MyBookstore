@@ -1,22 +1,17 @@
-<h3>Uzupełnij dane książki:</h3>
-
-<div class="form-group">
-    <label for="usr">ID:</label>
-    <input type="text" class="form-control" id="usr">
-  </div>
+<h3>Fill book data:</h3>
 
   <div class="form-group">
-    <label for="usr">TYTUŁ KSIĄŻKI:</label>
-    <input type="text" class="form-control" id="usr">
+    <label for="usr"> Title: </label>
+    <input type="text" class="form-control" id="usr" [(ngModel)]="title" >
   </div>
   <div class="form-group">
-    <label for="usr">AUTOR KSIĄŻKI:</label>
-    <input type="text" class="form-control" id="usr">
+    <label for="usr"> Number of pages: </label>
+    <input type="text" class="form-control" id="usr" [(ngModel)]="number_of_pages">
   </div>
   <div class="form-group">
-    <label for="usr">ROK WYDANIA KSIĄŻKI:</label>
-    <input type="text" class="form-control" id="usr">
+    <label for="usr"> Description:</label>
+    <input type="text" class="form-control" id="usr" [(ngModel)]="description">
   </div>
 
-  <button class="btn btn-info btn-add"><a href="#" [routerLink]="['/books']">ZATWIERDŹ</a> </button>
+  <button class="btn btn-info btn-add"><a (click)="addBook()">Confirm </a> </button>
   
