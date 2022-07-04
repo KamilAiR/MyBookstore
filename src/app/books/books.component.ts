@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from '../books.service';
 
+export class Author {
+  first_name = "" ;
+  id = 0;
+  last_name = "";
+}
+
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
@@ -8,10 +14,11 @@ import { BooksService } from '../books.service';
 })
 export class BooksComponent implements OnInit {
 
- books : {id: number; title: string; number_of_pages: number; description: string;}[] = [ ]
+ books : {id: number; title: string; number_of_pages: number; description: string; author : Author }[] = [ ];
 
- authors : {first_name: string; id: number; last_name: string; }[] = [ ]
 
+ 
+ 
 // books :  { author : {first_name : string, id : number, last_name : string}, description: string, id: number, number_of_pages: number;  title: string}[] = [ ]
 
  
@@ -27,7 +34,10 @@ export class BooksComponent implements OnInit {
     //this.books = this.booksService.getBooks(); 
     this.booksService.getBooks().subscribe(p => {
       this.books = p.data;
-      this.authors = p.data.author;
+      
     });
   }
 }
+
+
+

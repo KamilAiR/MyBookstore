@@ -14,7 +14,7 @@
         <td>{{book.title}}</td>
         <td>{{book.number_of_pages}}</td>
         <td>{{book.description}}</td>
-        <td> </td>
+        <td>{{book.author.first_name}} {{book.author.last_name}}</td>
         <td><button class="btn btn-danger" (click)="deleteBook(book.id, i)">Delete</button></td>
       </tr>    
     </tbody>

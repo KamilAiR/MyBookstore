@@ -16,10 +16,17 @@ export class AuthorAddComponent implements OnInit {
   constructor(private router : Router, private authorsService : AuthorsService) { }
 
   addAuthor() {
-    this.authorsService.addNewAuthor(this.first_name, this.last_name, this.birth_date).subscribe(p => {
+    if (this.first_name == "" || this.last_name == "")
+    { 
+        console.log( " Nie moze byc puste imie, naziwsko, ani data ")
+    }
+    else 
+    {
+      this.authorsService.addNewAuthor(this.first_name, this.last_name, this.birth_date).subscribe(p => {
       console.log(p);
       this.router.navigate(['/authors']);
     });
+   }
   }
 
   ngOnInit(): void {

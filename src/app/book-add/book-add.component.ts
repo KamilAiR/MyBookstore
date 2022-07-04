@@ -14,7 +14,6 @@ export class BookAddComponent implements OnInit {
   description = "";
   author_id = 0;
 
-
 constructor( private router : Router, private booksService : BooksService  ) { }
 
   setAuthorID(id: number)
@@ -23,10 +22,21 @@ constructor( private router : Router, private booksService : BooksService  ) { }
   }
   
   addBook() {
-    this.booksService.addNewBook(this.title, this.number_of_pages, this.description).subscribe ( p => {
-      console.log(p);
-      this.router.navigate(['/books']);
-    }) 
+
+    if ( this.title == "" )
+    {
+      console.log("Nie może być pustego tytulu  ")
+    }
+    else if ( this.number_of_pages <=0)
+    {
+      console.log("Nieprawidlowa liczba stron")
+    }
+    else {
+      this.booksService.addNewBook(this.title, this.number_of_pages, this.description).subscribe ( p => {
+        console.log(p);
+        this.router.navigate(['/books']);
+      }) 
+    }
   }
 
   ngOnInit(): void {
