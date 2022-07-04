@@ -11,13 +11,27 @@ export class LoginComponent implements OnInit {
   username = "";
   password = "";
 
+  showError = false; 
+
   constructor( private authorizationService : AuthorizationService) { }
+
+  closeErrorMessage()
+  {
+    this.showError = false;
+  }
 
   ngOnInit(): void {
   }
 
   login() {
-    this.authorizationService.login(this.username, this.password)
+    if( this.username =="" || this.password=="")
+    {
+      this.showError = true; 
+    }
+    else{
+      this.authorizationService.login(this.username, this.password)
+      this.showError = false; 
+    }
   }
 
 }

@@ -13,12 +13,14 @@ export class AuthorAddComponent implements OnInit {
   last_name =""
   birth_date =""
 
+  showError = false; 
+
   constructor(private router : Router, private authorsService : AuthorsService) { }
 
   addAuthor() {
     if (this.first_name == "" || this.last_name == "")
     { 
-        console.log( " Nie moze byc puste imie, naziwsko, ani data ")
+        this.showError = true; 
     }
     else 
     {
@@ -28,6 +30,12 @@ export class AuthorAddComponent implements OnInit {
     });
    }
   }
+
+  closeErrorMessage()
+  {
+    this.showError = false;
+  }
+
 
   ngOnInit(): void {
   }
