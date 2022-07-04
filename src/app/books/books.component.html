@@ -1,23 +1,20 @@
-<button class="btn btn-info btn-add"><a href="#" [routerLink]="['/book-add']">Add book</a> </button>
 <h1>BOOKS</h1>
 <table class="table table-bordered">
     <thead>
       <tr>
-        <th scope="col">ID</th>
         <th scope="col">Title</th>
         <th scope="col">Number of pages </th>
         <th scope="col">Description</th>
-        <th scope="col">Aythor</th>
+        <th scope="col">Author</th>
         <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let book of books; index as i">
-        <td scope="row">{{book.id}}</td>
         <td>{{book.title}}</td>
         <td>{{book.number_of_pages}}</td>
         <td>{{book.description}}</td>
-        <td>{{book.author_id}}</td>
+        <td> </td>
         <td><button class="btn btn-danger" (click)="deleteBook(book.id, i)">Delete</button></td>
       </tr>    
     </tbody>

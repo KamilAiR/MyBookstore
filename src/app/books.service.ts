@@ -7,6 +7,8 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class BooksService {
+
+  authorToAddId = 0; 
   // getBooks(){
   //   return of ([
   //     {id: 1, title: "W pustyni i w puszczy", number_of_pages: 350, description: "Powiesc przygodowa dla mlodziezy", author_id: 2},
@@ -15,14 +17,20 @@ export class BooksService {
   //   ]);
   // }
 
+  public setAuthorId(id : number)
+  {
+    this.authorToAddId = id;
+  }
+
+
   getBooks() {
     return this.httpClient.get<any>(environment.apiUrl + '/api/books');
   }
 
   addNewBook( title : string, number_of_pages : number, description : string) {
-    return this.httpClient.post(environment.apiUrl + '/api/authors/1/books', { 
+    return this.httpClient.post(`${environment.apiUrl}/api/authors/${this.authorToAddId}/books`, { 
       title : title,
-      number_of_pages: number_of_pages,  
+      number_of_pages: number_of_pages,         
       description : description
     })
   }

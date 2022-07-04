@@ -12,10 +12,16 @@ export class BookAddComponent implements OnInit {
   title = "";
   number_of_pages = 0; 
   description = "";
+  author_id = 0;
 
 
 constructor( private router : Router, private booksService : BooksService  ) { }
 
+  setAuthorID(id: number)
+  {
+    this.author_id = id; 
+  }
+  
   addBook() {
     this.booksService.addNewBook(this.title, this.number_of_pages, this.description).subscribe ( p => {
       console.log(p);

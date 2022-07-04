@@ -8,7 +8,9 @@ import { BooksService } from '../books.service';
 })
 export class BooksComponent implements OnInit {
 
- books : {id: number; title: string; number_of_pages: number; description: string; author_id: number;}[] = [ ]
+ books : {id: number; title: string; number_of_pages: number; description: string;}[] = [ ]
+
+ authors : {first_name: string; id: number; last_name: string; }[] = [ ]
 
 // books :  { author : {first_name : string, id : number, last_name : string}, description: string, id: number, number_of_pages: number;  title: string}[] = [ ]
 
@@ -25,6 +27,7 @@ export class BooksComponent implements OnInit {
     //this.books = this.booksService.getBooks(); 
     this.booksService.getBooks().subscribe(p => {
       this.books = p.data;
+      this.authors = p.data.author;
     });
   }
 }
