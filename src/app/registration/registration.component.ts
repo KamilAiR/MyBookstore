@@ -13,16 +13,28 @@ export class RegistrationComponent implements OnInit {
   password = "";
   email ="";
 
+  showError = false; 
+
   constructor( private authorizationService : AuthorizationService, private router :Router ) { }
+
+  closeErrorMessage()
+  {
+    this.showError = false;
+  }
 
   ngOnInit(): void {
   }
 
   register() {
-    this.authorizationService.register(this.username, this.password, this.email).subscribe (p => {
-      this.router.navigate(['/login']);
-    });
-    
+    if( this.username=="" || this.email == "")
+    {
+      this.showError = true; 
+    }
+    else{
+      this.authorizationService.register(this.username, this.password, this.email).subscribe (p => {
+        this.router.navigate(['/login']);
+        this.showError = false;
+      });
+    }
   }
-
 }

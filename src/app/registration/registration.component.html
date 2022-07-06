@@ -1,4 +1,9 @@
-<h3>fill Your data:</h3>
+<h3>Fill Your data:</h3>
+
+<div *ngIf="showError" class="alert alert-danger" role="alert">
+  Incorrect data! 
+  <button type="button" class="btn-close" aria-label="Close" (click)="closeErrorMessage()"> </button>
+</div>
 
 <div class="form-group">
     <label for="usr">Username:</label>
